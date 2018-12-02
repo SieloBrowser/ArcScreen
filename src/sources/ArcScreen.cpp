@@ -83,6 +83,10 @@ void ArcScreen::unload()
 	
 	// Deleting settings dialog if opened
 	delete m_settings.data();
+
+    // Removing toolbutton from toolbar
+    foreach(ArcScreenToolButton* button, m_navigationBarButtons)
+        delete button;
 }
 
 bool ArcScreen::testPlugin()
@@ -144,5 +148,13 @@ bool ArcScreen::mousePress(const Application::ObjectName& objName, QObject* obj,
 void ArcScreen::actionSlot()
 {
 	QMessageBox::information(m_view, tr("Hello"), tr("First plugin action works!"));
+}
+
+QWidget* ArcScreen::navigationBarButton(Sn::TabWidget* tabWidget)
+{
+    ArcScreenToolButton* button{new ArcScreenToolButton(tabWidget)};
+    m_navigationBarButtons.append(button);
+
+    return button;
 }
 }

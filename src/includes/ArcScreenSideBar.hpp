@@ -28,16 +28,17 @@
 
 #include "Widgets/SideBar/SideBarInterface.hpp"
 
-class ArcScreenSideBar: public Sn::SideBarInterface {
+class ArcScreenSideBar: public Sn::SideBarInterface
+{
 	Q_OBJECT
 
-public:
-	ArcScreenSideBar(QObject* parent = nullptr);
+    public:
+        ArcScreenSideBar(QObject* parent = nullptr);
 
-	QString title() const;
+        QString title() const;
 
-	QAction* createMenuAction();
-	QWidget* createSideBarWidget(Sn::TabWidget* tabWidget);
+        QAction* createMenuAction();
+        QWidget* createSideBarWidget(Sn::TabWidget* tabWidget);
 };
 
 #endif // ARCSCREENSIDEBAR_HPP
