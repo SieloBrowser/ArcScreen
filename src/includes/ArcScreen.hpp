@@ -23,8 +23,8 @@
 ***********************************************************************************/
 
 #pragma once
-#ifndef ARCSCREENPLUGIN_HPP
-#define ARCSCREENPLUGIN_HPP
+#ifndef ARCSCREEN_HPP
+#define ARCSCREEN_HPP
 
 #include "Plugins/PluginInterface.hpp"
 
@@ -32,7 +32,7 @@
 
 #include <QPointer> 
 
-class ArcScreenPluginSideBar;
+class ArcScreenSideBar;
 
 namespace Sn
 {
@@ -51,7 +51,7 @@ class WebView;
  * Some other function can be overrided. I advice you to check the base "PluginInterface" class or go read 
  * the wiki here : https://github.com/SieloBrowser/SieloBrowser/wiki/%5BFR%5D-2.0-Introduction-:-cr%C3%A9ation-de-plugin
  */
-class ArcScreenPlugin: public QObject, public PluginInterface {
+class ArcScreen: public QObject, public PluginInterface {
 	Q_OBJECT
 	Q_INTERFACES(Sn::PluginInterface) // Load the interface. It **has to** be "Sn::PluginInterface".
 	Q_PLUGIN_METADATA(IID "xyz.doocode.arc.ArcScreen") // Set a unique identifier for your plugin. 
@@ -61,7 +61,7 @@ public:
 	 * Constructor. Don't do anything expensive in constructor! It will be called even if user doesn't 
 	 * have the plugin allowed.
 	 */
-	ArcScreenPlugin();
+	ArcScreen();
 
 	// Abstract override
 
@@ -134,8 +134,8 @@ private:
 
 	WebView* m_view{nullptr};
 
-	ArcScreenPluginSideBar* m_sideBar{nullptr};
+	ArcScreenSideBar* m_sideBar{nullptr};
 };
 }
 
-#endif // ARCSCREENPLUGIN_HPP
+#endif // ARCSCREEN_HPP

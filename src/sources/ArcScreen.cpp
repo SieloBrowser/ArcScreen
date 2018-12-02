@@ -22,7 +22,7 @@
 ** SOFTWARE.                                                                      **
 ***********************************************************************************/
 
-#include "ArcScreenPlugin.hpp"
+#include "ArcScreen.hpp"
 
 #include <QVBoxLayout>
 #include <QDialog>
@@ -30,7 +30,7 @@
 #include <QMenu>
 #include <QMessageBox>
 
-#include "ArcScreenPluginSideBar.hpp"
+#include "ArcScreenSideBar.hpp"
 
 #include "Web/WebView.hpp"
 #include "Web/WebHitTestResult.hpp"
@@ -42,12 +42,12 @@
 
 namespace Sn
 {
-ArcScreenPlugin::ArcScreenPlugin()
+ArcScreen::ArcScreen()
 {
 	// Empy
 }
 
-PluginProp ArcScreenPlugin::pluginProp()
+PluginProp ArcScreen::pluginProp()
 {
 	PluginProp props{};
 
@@ -62,7 +62,7 @@ PluginProp ArcScreenPlugin::pluginProp()
 	return props;
 }
 
-void ArcScreenPlugin::init(InitState state, const QString& settingsPath)
+void ArcScreen::init(InitState state, const QString& settingsPath)
 {
 	m_settingsPath = settingsPath;
 
@@ -71,11 +71,11 @@ void ArcScreenPlugin::init(InitState state, const QString& settingsPath)
 	Application::instance()->plugins()->registerAppEventHandler(PluginProxy::MousePressHandler, this);
 
 	// Adding new sidebar into application
-	m_sideBar = new ArcScreenPluginSideBar(this);
+	m_sideBar = new ArcScreenSideBar(this);
 	Application::instance()->addSidebar("plugin-sidebar", m_sideBar);
 }
 
-void ArcScreenPlugin::unload()
+void ArcScreen::unload()
 {
 	// Removing sidebar from application
 	Application::instance()->removeSidebar(m_sideBar);
@@ -85,12 +85,12 @@ void ArcScreenPlugin::unload()
 	delete m_settings.data();
 }
 
-bool ArcScreenPlugin::testPlugin()
+bool ArcScreen::testPlugin()
 {
 	return Application::currentVersion.contains("1.17");
 }
 
-void ArcScreenPlugin::showSettings(QWidget* parent)
+void ArcScreen::showSettings(QWidget* parent)
 {
 	if (!m_settings) {
 		m_settings = new QDialog(parent);
@@ -113,7 +113,7 @@ void ArcScreenPlugin::showSettings(QWidget* parent)
 	m_settings.data()->raise();
 }
 
-void ArcScreenPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const WebHitTestResult& result)
+void ArcScreen::populateWebViewMenu(QMenu* menu, WebView* view, const WebHitTestResult& result)
 {
 	m_view = view;
 
@@ -128,12 +128,12 @@ void ArcScreenPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const WebH
 	if (result.isContentEditable())
 		title += " on input";
 
-	menu->addAction(tr("My first plugin action") + title, this, &ArcScreenPlugin::actionSlot);
+	menu->addAction(tr("My first plugin action") + title, this, &ArcScreen::actionSlot);
 }
 
-bool ArcScreenPlugin::mousePress(const Application::ObjectName& objName, QObject* obj, QMouseEvent* event)
+bool ArcScreen::mousePress(const Application::ObjectName& objName, QObject* obj, QMouseEvent* event)
 {
-	qDebug() << "ArcScreenPlugin: mousePress" << objName << obj << event;
+	qDebug() << "ArcScreen: mousePress" << objName << obj << event;
 
 	/* Returning false means that we don't want to block propagating this event. Returning true
 	 * may affect behaviour of Sielo, so make sure you know what you are doing!
@@ -141,7 +141,7 @@ bool ArcScreenPlugin::mousePress(const Application::ObjectName& objName, QObject
 	return false;
 }
 
-void ArcScreenPlugin::actionSlot()
+void ArcScreen::actionSlot()
 {
 	QMessageBox::information(m_view, tr("Hello"), tr("First plugin action works!"));
 }

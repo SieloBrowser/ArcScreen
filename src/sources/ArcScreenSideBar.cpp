@@ -22,22 +22,46 @@
 ** SOFTWARE.                                                                      **
 ***********************************************************************************/
 
-#pragma once
-#ifndef ARCSCREENPLUGINSIDEBAR_HPP
-#define ARCSCREENPLUGINSIDEBAR_HPP
+#include "ArcScreenSideBar.hpp"
 
-#include "Widgets/SideBar/SideBarInterface.hpp"
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QLabel>
 
-class ArcScreenPluginSideBar: public Sn::SideBarInterface {
-	Q_OBJECT
+ArcScreenSideBar::ArcScreenSideBar(QObject* parent) :
+	SideBarInterface(parent)
+{
+	// Empty
+}
 
-public:
-	ArcScreenPluginSideBar(QObject* parent = nullptr);
+QString ArcScreenSideBar::title() const
+{
+	return tr("ArcScreen Siebar");
+}
 
-	QString title() const;
+QAction* ArcScreenSideBar::createMenuAction()
+{
+	/*
+	 * The action must be parented to some object from plugin,
+	 * otherwise there may be a crash when unloading the plugin.
+	 */
+	QAction* action{new QAction(tr("ArcScreen Sidebar"), this)};
+	action->setCheckable(true);
 
-	QAction* createMenuAction();
-	QWidget* createSideBarWidget(Sn::TabWidget* tabWidget);
-};
+	return action;
+}
 
-#endif // ARCSCREENPLUGINSIDEBAR_HPP
+QWidget* ArcScreenSideBar::createSideBarWidget(Sn::TabWidget* tabWidget)
+{
+	QWidget* widget{new QWidget()};
+	QPushButton* button{new QPushButton("ArcScreen Plugin v1.0.0")};
+	QLabel* label{new QLabel()};
+
+    label->setPixmap(QPixmap(":images/arc.png"));
+
+	QVBoxLayout* layout{new QVBoxLayout(widget)};
+	layout->addWidget(label);
+	layout->addWidget(button);
+
+	return widget;
+}
