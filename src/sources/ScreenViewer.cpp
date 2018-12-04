@@ -34,7 +34,7 @@ void ScreenViewer::genActs()
 {
     m_actSave = new QAction(QIcon(":images/save.png"), tr("Save screenshot"),this);
     m_actSave->setShortcut(QKeySequence::Save);
-    connect(m_actSave,SIGNAL(triggered()),this,SLOT(saveScreen()));
+    connect(m_actSave,SIGNAL(triggered()),this,SLOT(saveFile()));
 
     m_actZoomIn = new QAction(QIcon(":images/zoom-in.png"), tr("Zoom +"),this);
     m_actZoomIn->setShortcut(QKeySequence("Ctrl++"));
@@ -109,4 +109,18 @@ void ScreenViewer::editZoom()
         m_sliderZoom->setValue(m_sliderZoom->value()+range);
     else if(sender()==m_actZoomOut)
         m_sliderZoom->setValue(m_sliderZoom->value()-range);
+}
+
+void ScreenViewer::saveFile()
+{
+    QString path = QFileDialog::getSaveFileName(this, tr("Save Screenshot"), QString(QDir::homePath()+QDir::separator()+m_fileName), tr("PNG Files (*.png);;BMP Files (*.bmp);;GIF Files (*.gif);;All Files (*)"));
+    if (!path.isEmpty())
+    {
+        QFile file(path);
+        if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+        {
+            m_image.save(path);
+            m_isSaved = true;
+        }
+    }
 }

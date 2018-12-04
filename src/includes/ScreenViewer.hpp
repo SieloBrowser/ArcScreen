@@ -19,6 +19,7 @@ class ScreenViewer: public QMainWindow
 
         void updateZoom();
         void editZoom();
+        void saveFile();
 
     private:
         QToolBar *m_toolBar;
