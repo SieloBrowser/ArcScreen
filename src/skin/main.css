@@ -1,0 +1,129 @@
+* {font-family: 'Montserrat', arial, segoe ui, ubuntu, sans-serif;}
+
+QMainWindow,
+QGraphicsView,
+QScrollView
+{
+    background: transparent;
+    border: none;
+}
+
+/* QToolBar */
+QToolBar
+{
+    border: none;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+        stop: 0 rgba(0,0,0,.5), stop: 1.0 transparent);
+    color: #fff;
+    padding: 0px;
+}
+
+QToolBar::separator
+{
+    background: rgba(255,255,255,.2);
+    width: 6px;
+    margin: 5px 5px;
+    border-radius: 3px;
+}
+
+QToolBar QToolButton,
+QToolBar QPushButton
+{
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px;
+}
+
+QToolBar QToolButton:hover,
+QToolBar QPushButton:hover
+{
+    background: .themeColor;
+}
+
+QToolBar QToolButton:pressed,
+QToolBar QPushButton:pressed
+{
+    background: .themeColor(light: 25);
+}
+
+QToolBar QToolButton:checked
+{
+    padding: 0;
+}
+
+QPushButton::menu-indicator {
+    image: url(none.png);
+}
+
+QToolBar QLabel
+{
+    color: #fff;
+    font-size: 14px;
+    padding: 0 10px;
+}
+
+QToolBar QSlider
+{
+    padding: 0px 15px;
+}
+
+QToolBar QSlider::groove:horizontal
+{
+    border: none;
+    height: 10px;
+    background: rgba(255,255,255,.1);
+    margin: 5px 0px;
+    border-radius: 5px;
+}
+
+QToolBar QSlider::handle:horizontal
+{
+    background: white;
+    border: 1px solid rgb(50,50,50);
+    width: 18px;
+    margin: -5px ;
+    border-radius: 10px;
+}
+
+QToolBar QSlider::handle:horizontal:hover
+{
+    background: rgb(0,120,200);
+}
+
+/* QMenu */
+QMenu
+{
+    background: rgb(50,50,50);
+    padding: 5px 0px;
+    border: 1px solid rgb(70,70,70);
+}
+
+QMenu::item
+{
+    border: none;
+    padding: 10px 15px;
+    padding-left: 35px;
+    color: white;
+}
+
+QMenu::item:selected
+{
+    background: .themeColor;
+}
+
+QMenu::icon
+{
+    margin-left: 25px;
+}
+
+QMenu::separator
+{
+    border: none;
+    height: 1px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 rgba(255,255,255,.2), stop: .5 rgba(255,255,255,.05), stop: 1 rgba(255,255,255,.1));
+    height: 6px;
+    margin: 3px 13px;
+    border-radius: 3px;
+}

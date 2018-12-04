@@ -44,7 +44,7 @@ namespace Sn
 {
 ArcScreen::ArcScreen()
 {
-	// Empy
+    // Empy
 }
 
 PluginProp ArcScreen::pluginProp()
@@ -54,7 +54,7 @@ PluginProp ArcScreen::pluginProp()
 	props.name = "ArcScreen Plugin";
 	props.info = "ArcScreen of minimal plugin";
 	props.desc = "Very simple minimal plugin example";
-    props.icon = QPixmap(":images/arc.png");
+    props.icon = QPixmap(":images/screen.png");
 	props.version = "1.0.0";
 	props.author = "Victor DENIS <victordenis01@gmail.com";
 	props.hasSettings = true;
@@ -108,7 +108,7 @@ void ArcScreen::showSettings(QWidget* parent)
 
 		m_settings.data()->setAttribute(Qt::WA_DeleteOnClose);
 		m_settings.data()->setWindowTitle(tr("ArcScreen Plugin Settings"));
-        m_settings.data()->setWindowIcon(QIcon(":images/arc.png"));
+        m_settings.data()->setWindowIcon(QIcon(":images/screen.png"));
 
 		connect(closeButton, &QPushButton::clicked, m_settings.data(), &QDialog::close);
 	}

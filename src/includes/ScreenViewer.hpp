@@ -8,7 +8,7 @@ class ScreenViewer: public QMainWindow
     Q_OBJECT
 
     public:
-        ScreenViewer();
+        ScreenViewer(QWidget *parent = 0);
 
     public slots:
         void setScreen(QPixmap screen, QString name);

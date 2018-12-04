@@ -57,7 +57,7 @@ QWidget* ArcScreenSideBar::createSideBarWidget(Sn::TabWidget* tabWidget)
 	QPushButton* button{new QPushButton("ArcScreen Plugin v1.0.0")};
 	QLabel* label{new QLabel()};
 
-    label->setPixmap(QPixmap(":images/arc.png"));
+    label->setPixmap(QPixmap(":images/screen.png"));
 
 	QVBoxLayout* layout{new QVBoxLayout(widget)};
 	layout->addWidget(label);

@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file>skin/main.css</file>
+        <file>font/Montserrat/Montserrat-Black.ttf</file>
+        <file>font/Montserrat/Montserrat-BlackItalic.ttf</file>
+        <file>font/Montserrat/Montserrat-Bold.ttf</file>
+        <file>font/Montserrat/Montserrat-BoldItalic.ttf</file>
+        <file>font/Montserrat/Montserrat-ExtraBold.ttf</file>
+        <file>font/Montserrat/Montserrat-ExtraBoldItalic.ttf</file>
+        <file>font/Montserrat/Montserrat-ExtraLight.ttf</file>
+        <file>font/Montserrat/Montserrat-ExtraLightItalic.ttf</file>
+        <file>font/Montserrat/Montserrat-Italic.ttf</file>
+        <file>font/Montserrat/Montserrat-Light.ttf</file>
+        <file>font/Montserrat/Montserrat-LightItalic.ttf</file>
+        <file>font/Montserrat/Montserrat-Medium.ttf</file>
+        <file>font/Montserrat/Montserrat-MediumItalic.ttf</file>
+        <file>font/Montserrat/Montserrat-Regular.ttf</file>
+        <file>font/Montserrat/Montserrat-SemiBold.ttf</file>
+        <file>font/Montserrat/Montserrat-SemiBoldItalic.ttf</file>
+        <file>font/Montserrat/Montserrat-Thin.ttf</file>
+        <file>font/Montserrat/Montserrat-ThinItalic.ttf</file>
+        <file>images/menu.png</file>
+        <file>images/save.png</file>
+        <file>images/screen.png</file>
+        <file>images/zoom-in.png</file>
+        <file>images/zoom-out.png</file>
+    </qresource>
+</RCC>

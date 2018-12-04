@@ -18,6 +18,7 @@ file(
     SOURCE_FILES
     includes/*.hpp
     sources/*.cpp
+    skin/*
 )
 
 file(

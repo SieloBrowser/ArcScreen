@@ -8,7 +8,7 @@ ArcScreenToolButton::ArcScreenToolButton(Sn::TabWidget* tabWidget, QWidget* pare
 {
 	setObjectName("navigation-button-view-history");
 	setToolTip(tr("Take screenshot"));
-    setIcon(QIcon(":images/arc.png"));
+    setIcon(QIcon(":images/screen.png"));
 	setToolButtonStyle(Qt::ToolButtonIconOnly);
 	//m_buttonViewHistory->setToolBarButtonLook(true);
 	setAutoRaise(true);

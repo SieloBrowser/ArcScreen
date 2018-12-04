@@ -1,11 +1,14 @@
 #include "ScreenViewer.hpp"
+#include "Skin.hpp"
 
-ScreenViewer::ScreenViewer()
+ScreenViewer::ScreenViewer(QWidget *parent) :
+    QMainWindow(parent)
 {
+    Skin::init(this);
     QGraphicsScene *scene = new QGraphicsScene;
 
     m_item = new QGraphicsPixmapItem;
-    m_item->setPixmap(QPixmap(":/img/background.png"));
+    m_item->setPixmap(QPixmap(":images/background.png"));
     scene->addItem(m_item);
 
     m_view = new QGraphicsView;
@@ -29,15 +32,15 @@ ScreenViewer::ScreenViewer()
 
 void ScreenViewer::genActs()
 {
-    m_actSave = new QAction(tr("Save screenshot"),this);
+    m_actSave = new QAction(QIcon(":images/save.png"), tr("Save screenshot"),this);
     m_actSave->setShortcut(QKeySequence::Save);
     connect(m_actSave,SIGNAL(triggered()),this,SLOT(saveScreen()));
 
-    m_actZoomIn = new QAction(tr("Zoom +"),this);
+    m_actZoomIn = new QAction(QIcon(":images/zoom-in.png"), tr("Zoom +"),this);
     m_actZoomIn->setShortcut(QKeySequence("Ctrl++"));
     connect(m_actZoomIn,SIGNAL(triggered()),this,SLOT(editZoom()));
 
-    m_actZoomOut = new QAction(tr("Zoom -"),this);
+    m_actZoomOut = new QAction(QIcon(":images/zoom-out.png"), tr("Zoom -"),this);
     m_actZoomOut->setShortcut(QKeySequence("Ctrl+-"));
     connect(m_actZoomOut,SIGNAL(triggered()),this,SLOT(editZoom()));
 }
@@ -45,7 +48,7 @@ void ScreenViewer::genActs()
 void ScreenViewer::genToolBar()
 {
     m_toolBar = new QToolBar;
-    //mainToolBar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    m_toolBar->setIconSize(QSize(18,18));
 
     m_toolBar->addAction(m_actSave);
 
