@@ -20,10 +20,10 @@ ArcScreenToolButton::ArcScreenToolButton(Sn::TabWidget* tabWidget, QWidget* pare
 void ArcScreenToolButton::takeScreenshot()
 {
     // Take screenshot
-    Sn::WebTab *wt = qobject_cast<Sn::WebTab *>(m_tabWidget->currentWidget());
+    Sn::WebTab *wt = m_tabWidget->webTab();
 
     QPixmap pixmap(wt->width(), wt->height());
-    QPainter painter(&pixmap); // msg dans debug ?
+    QPainter painter(&pixmap);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
     wt->render(&painter);
 
