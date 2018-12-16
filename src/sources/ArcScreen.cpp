@@ -51,12 +51,12 @@ PluginProp ArcScreen::pluginProp()
 {
 	PluginProp props{};
 
-	props.name = "ArcScreen Plugin";
-	props.info = "ArcScreen of minimal plugin";
-	props.desc = "Very simple minimal plugin example";
+	props.name = "ArcScreen";
+	props.info = "Screenshot plugin";
+	props.desc = "A simple plugin made to take screenshot of web pages";
     props.icon = QPixmap(":images/screen.png");
 	props.version = "1.0.0";
-	props.author = "Victor DENIS <victordenis01@gmail.com";
+	props.author = "Aero15 <aero15@outlook.com>";
 	props.hasSettings = true;
 
 	return props;
