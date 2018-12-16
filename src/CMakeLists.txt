@@ -32,7 +32,7 @@ find_package(Qt5WebEngine 5.11.2 REQUIRED)
 find_package(Qt5Sql 5.11.2 REQUIRED)
 find_package(Qt5WebEngineWidgets 5.11.2 REQUIRED)
 
-set(SIELO_LIBS Core Qt5::Widgets Qt5::WebEngine Qt5::Sql Qt5::WebEngineWidgets)
+set(SIELO_LIBS SieloCore Qt5::Widgets Qt5::WebEngine Qt5::Sql Qt5::WebEngineWidgets)
 
 add_library(arcscreen-plugin MODULE ${SOURCE_FILES} ${QRC_FILES})
 
