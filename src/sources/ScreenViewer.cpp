@@ -4,6 +4,9 @@
 ScreenViewer::ScreenViewer(QWidget *parent) :
     QMainWindow(parent)
 {
+	setWindowTitle(tr("Screenshot"));
+	setWindowIcon(QIcon(":images/screen.png"));
+
     Skin::init(this);
     QGraphicsScene *scene = new QGraphicsScene;
 
